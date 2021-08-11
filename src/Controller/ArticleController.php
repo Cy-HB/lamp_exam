@@ -37,11 +37,23 @@ class ArticleController extends AbstractController
      */
     public function home(): Response
     {
+        $articles = $this->articleRepository->findBy(array(),['date'=>'DESC'], 5, null);
+
+        return $this->render('article/home.html.twig', [
+            'articles' => $articles,
+        ]);
+    }
+
+
+        /**
+     * @Route("/articles", name="articles")
+     */
+    public function articles(): Response
+    {
 
         $articles = $this->articleRepository->findAll();
 
-
-        return $this->render('article/home.html.twig', [
+        return $this->render('article/articles.html.twig', [
             'articles' => $articles,
         ]);
     }
