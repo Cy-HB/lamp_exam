@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ article.title }}{% endblock %}
+
+{% block body %}
+<h1>{{ article.title }}</h1>
+<p>Date : {{ article.date|date("m/d/Y") }}</p>
+<p>Description : {{ article.description }}</p>
+<img class="fit-picture"
+     src="{{article.urlPhoto}}"
+     alt="">
+<br>
+<a href="{{ path('home') }}">Retour à l'accueil</a>
+{% endblock %}
+
+
