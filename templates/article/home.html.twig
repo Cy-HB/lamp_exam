@@ -10,15 +10,13 @@
    <tr>
        <th>Titre</th>
        <th>Date</th>
-       <th>Action</th>
    </tr>
 
 
 {% for article in articles %}
    <tr>
-       <td>{{ article.title }}</td>
+       <td><a href="{{ path('article', {id: article.id}) }}"></a></td>
        <td>{{ article.date|date("m/d/Y") }}</td>
-       <td><a href="{{ path('article', {id: article.id}) }}">Voir l'article</a></td>
    </tr>
 {% endfor %}
 
